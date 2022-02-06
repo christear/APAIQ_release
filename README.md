@@ -25,7 +25,7 @@ please read the information from https://anaconda.org/joshuachou/apaiq
 
 ## run APAIQ
 
-`APAIQ --input_file=RNAseq.depth.bedGraph --out_dir=out_dir/ --fa_file=genome_fa --name=sample_id --DB_file polyA.bed --model $model`
+`python src/APAIQ.v.0.3.py --input_file=RNAseq.depth.bedGraph --out_dir=out_dir/ --fa_file=genome_fa --name=sample_id --DB_file polyA.bed --model $model`
 A pre-trained model with best performence could be download through the link below:
 https://drive.google.com/drive/folders/1AO-djjSmCLdCQ3j3VzAqiz4DmHkM7V5h?usp=sharing
 
