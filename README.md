@@ -25,16 +25,17 @@ please read the information from https://anaconda.org/joshuachou/apaiq
 
 ## run APAIQ
 
-`python src/APAIQ.v.0.3.py --input_file=RNAseq.depth.bedGraph --out_dir=out_dir/ --fa_file=genome_fa --name=sample_id --DB_file polyA.bed --model $model`
-A pre-trained model with best performence could be download through the link below:
+`apaiq --input_file=RNAseq.depth.bedGraph --out_dir=out_dir/ --fa_file=genome_fa --name=sample_id --DB_file polyA.bed --model $model`
+a test data, pre-trained model and annotation db_file could be found through the link below:
 https://drive.google.com/drive/folders/1AO-djjSmCLdCQ3j3VzAqiz4DmHkM7V5h?usp=sharing
 
+
 ### Options
-	--input_file <wig file or bedGraph file>			input file for unstranded only
+	--input_file <bedGraph file>			input bedGraph file from strandless data 
 
-	--input_plus <wig or bedGraph file>			input file for transcripts that originated from the forward strand
+	--input_plus <bedGraph file>			input bedGraph file from forward strand
 
-	--input_minus <wig or bedGraph file>			input file for transcripts that originated from the reverse strand
+	--input_minus <bedGraph file>			input bedGraph file from reverse strand 
 
 	--fa_file				fasta file of the genome 
 
