@@ -154,8 +154,9 @@ if __name__ == '__main__':
             log.write('Blocks inf:{}_{}\t{}\n'.format(chromosome,strand,'\t'.join(str(e) for e in chr_blocks)))
             #chr_blocks = blocks_input_list[chromosome]
             print('### {} blocks in {}_{} strand'.format(len(chr_blocks),chromosome,strand))
+            print('### {} threads would be run in paralle'.format(thread))
             with ProcessPoolExecutor(max_workers=thread) as executor:
-                chr_out_pas = executor.map(run_single_block,chr_blocks)
+                chr_out_pas = executor.map(run_single_block,chr_blocks,chunksize = 5)
                 chr_anno_pas = annotatePAS(DB_file,chr_out_pas,chromosome,strand)
                 pas_out_list += chr_anno_pas
             ### test run in single thread/cpu/core/process 
