@@ -27,7 +27,7 @@ please read the information from https://anaconda.org/joshuachou/apaiq
 
 `apaiq --input_file=RNAseq.depth.bedGraph --out_dir=out_dir/ --fa_file=genome_fa --name=sample_id --DB_file polyA.bed --model $model`
 a test data, pre-trained model and annotation db_file could be found through the link below:
-https://drive.google.com/drive/folders/1AO-djjSmCLdCQ3j3VzAqiz4DmHkM7V5h?usp=sharing
+https://drive.google.com/drive/folders/1D-I_LN1DXQno8BUXUEEIVu7QUMZuEkWQ?usp=sharing
 
 
 ### Options
