@@ -19,9 +19,14 @@ To get the value of reads per million (RPM), instead of raw count, a scaled fact
 The factor is equal to 1000000/(total unique mapped reads) 
 
 ## install APAIQ 
-
-`conda install -c joshuachou apaiq` 
+To install the compiled version of APAIQ from conda, we recommend to creat a conda enviroment first using 
+`conda create -n apaiq_env` and then
+`conda install -c joshuachou apaiq`
+All the enviroment files and required libraries would be installed automatically   
 please read the information from https://anaconda.org/joshuachou/apaiq
+
+To run APAIQ using source code from Github, please create a enviroment using the provided env files.
+`conda create --name apaiq_env --file apaiq.env.txt`
 
 ## run APAIQ
 
