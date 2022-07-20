@@ -34,7 +34,7 @@ To run APAIQ using source code from Github, please create a enviroment using the
 a test data, pre-trained model and annotation db_file could be found through the link below:
 https://drive.google.com/drive/folders/1D-I_LN1DXQno8BUXUEEIVu7QUMZuEkWQ?usp=sharing
 
-please using the prefix of the model files as the input of `--model`. For instance for the provided model in Google Drive, the option
+Please use the prefix of the model files as the input of `--model`. For instance for the provided model in Google Drive, the option
 should be `--model snu398_model.ckpt`
 
 ### Options
