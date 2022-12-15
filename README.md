@@ -61,3 +61,6 @@ should be `--model snu398_model.ckpt`
 	--keep_temp				use --keep_temp='yes', if you want to keep the temporary files.
 	
 
+## Running time and memory 
+Parallelization was implanted in APAIQ using multiple-processing in Python, for which DNA sequence and RNA-seq coverage across the whole genome were divided  into hundreds of blocks. Thus, the run time and memory usage could be variable using different number of cores/CPU and different size of block (default is 100k bp). 
+Usually, 2.5-4 G memory were required for each parallelized core/CPU.
