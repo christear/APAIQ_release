@@ -13,11 +13,8 @@ import gc
 
 from pybedtools import BedTool
 
-#block_length = 1000000 
-# input file should be bedgraph 
-#def get_block_position(bg_file,win_width,block_length):
 
-def get_block_position(lines,win_width,block_length):
+def get_block_position(lines,win_width,block_length,keep_temp):
     _ext_width = int(win_width/1.5)
     blocks = []
     _ini_chr = ''
@@ -75,6 +72,11 @@ def get_block_position(lines,win_width,block_length):
                 _end_pos = _pos2 + _ext_width
         # add the last block 
     blocks.append([_block_num,_start_line,_i - _skipped,_chr,_start_pos,_end_pos])
+    if keep_temp == 'yes':
+        _tempf = 'temp.blocks.' + str(_chr) + ':' + str(_block_num)
+        with open(_tempf,'w') as w:
+            for _b in blocks:
+                w.write('\t'.join(str(e) for e in _b) + '\n')
     #for _b in blocks:
     #    print(_b)                
     return blocks
@@ -169,22 +171,27 @@ def args():
     parser.add_argument('--window', default=201, type=int, help='length to window for PAS prediction')
     parser.add_argument('--depth', default=1, type=float,help='total number of mapped reads( in millions)')
     parser.add_argument('--block_length', default=1e5, type=int,help='block length')
+    parser.add_argument('--keep_temp',default=None,help='if you want to keep temporary file, set to "yes"')
     argv = parser.parse_args()
     input_bg = argv.input_bg
     fa_file = argv.fa_file
     window = argv.window
     depth = argv.depth
     block_length = argv.block_length
-    return input_bg,fa_file,window,depth,block_length
+    keep_temp =  argv.keep_temp
+    return input_bg,fa_file,window,depth,block_length,keep_temp
     
 if __name__ == "__main__":
-    input_bg,fa_file,window,depth,block_length = args()
-    blocks_pos = get_block_position(input_bg,window,block_length)
-    blocks = Bedgraph_to_blocks(input_bg,fa_file,window,depth,blocks_pos[-1])
+    input_bg,fa_file,window,depth,block_length,keep_temp = args()
+    bg_lines = []
+    with open (input_bg,'r') as r:
+        for _line in r:
+            _line = _line.rstrip('\n')
+            bg_lines.append(_line)
+    blocks_pos = get_block_position(bg_lines,window,block_length,keep_temp)
+    blocks = Bedgraph_to_blocks(bg_lines,fa_file,window,depth,blocks_pos[-1],'chrX')
     print(sys.getsizeof(blocks))
-    for b in blocks:
-        print(b)
-        #print(len(b))
+
     
 
 
