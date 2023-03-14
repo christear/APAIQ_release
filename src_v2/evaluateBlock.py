@@ -99,7 +99,7 @@ def dataProcessing(chromosome,strand,block,window,rst,ifdeeppass):
         return
         
 def Evaluate(chromosome,strand,block,model,rst,window,keep_temp):
-    print('### Evaluation data processing')
+    print('### Evaluation data with CPU')
     processed_data = dataProcessing(chromosome,strand,block,window,rst,'no')
     # saving temporary files for debug 
     #if keep_temp == 'yes':
@@ -125,6 +125,26 @@ def Evaluate(chromosome,strand,block,model,rst,window,keep_temp):
         return pred_out
     else:
         return
+        
+def Evaluate_with_GPU(chromosome,strand,block,model,rst,window,keep_temp):
+    print('### Evaluation data with GPU')
+    processed_data = dataProcessing(chromosome,strand,block,window,rst,'no')
+    if processed_data != None:
+        seq_data,cov_data,pas_id = processed_data
+        block = []
+        processed_data = []
+        print("### Start Evaluating")
+        with tf.device('/device:GPU:0'):
+            keras_Model = PolyA_CNN(window)
+            keras_Model.load_weights(model)
+            pred = keras_Model.predict({"seq_input": seq_data, "cov_input": cov_data})
+        pred_out = []
+        for i in range(len(pas_id)):
+            pred_out.append((pas_id[i],pred[i][0]))
+        return pred_out
+    else:
+        return
+        
         
 def EvaluateDeepPASS(chromosome,strand,block,model,rst,window,keep_temp):
     print('### Evaluation based on DeepPASS')
