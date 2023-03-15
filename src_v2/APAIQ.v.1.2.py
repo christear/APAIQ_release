@@ -82,6 +82,7 @@ def run_single_block(input_list):
     else:
         if use_GPU == 'yes':
             pred_out = Evaluate_with_GPU(chromosome,strand,block,model,rst,window,keep_temp)
+            #pred_out = Evaluate(chromosome,strand,block,model,rst,window,keep_temp)
         else:
             os.environ['CUDA_VISIBLE_DEVICES'] = '-1'
             pred_out = Evaluate(chromosome,strand,block,model,rst,window,keep_temp)
@@ -141,8 +142,13 @@ if __name__ == '__main__':
             _chr_start_time = datetime.datetime.now()
             print('### Processing {} in {} strand'.format(chromosome,strand))
             lines = all_lines[chromosome]
-            chr_blocks = get_block_position(lines,window,block_length,keep_temp)
-            chr_blocks[3] = use_GPU
+            o_chr_blocks = get_block_position(lines,window,block_length,keep_temp)
+            # add use_GPU options to blocks 
+            chr_blocks = []
+            for oe in o_chr_blocks:
+                oe[3] = use_GPU
+                chr_blocks.append(oe)
+            #chr_blocks[3] = use_GPU
             log.write('Blocks inf:{}_{}\t{}\n'.format(chromosome,strand,'\t'.join(str(e) for e in chr_blocks)))
             print('### {} blocks in {}_{} strand'.format(len(chr_blocks),chromosome,strand))
             if use_GPU == 'yes':

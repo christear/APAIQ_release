@@ -13,7 +13,6 @@ import gc
 
 from pybedtools import BedTool
 
-
 def get_block_position(lines,win_width,block_length,keep_temp):
     _ext_width = int(win_width/1.5)
     blocks = []
@@ -189,6 +188,7 @@ if __name__ == "__main__":
             _line = _line.rstrip('\n')
             bg_lines.append(_line)
     blocks_pos = get_block_position(bg_lines,window,block_length,keep_temp)
+    print(blocks_pos)
     blocks = Bedgraph_to_blocks(bg_lines,fa_file,window,depth,blocks_pos[-1],'chrX')
     print(sys.getsizeof(blocks))
 
