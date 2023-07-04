@@ -38,7 +38,8 @@ To install each dependency package manually\
 
 `apaiq --input_file=RNAseq.depth.bedGraph --out_dir=out_dir/ --fa_file=genome_fa --name=sample_id --DB_file polyA.bed --model $model`
 a test data, pre-trained model and annotation db_file could be found through the link below:
-https://drive.google.com/drive/folders/1D-I_LN1DXQno8BUXUEEIVu7QUMZuEkWQ?usp=sharing
+https://drive.google.com/drive/folders/1KNj-dsh5hCmKI3dyhIsi_OuU6-3mLpBW?usp=sharing
+
 
 Please use the prefix of the model files as the input of `--model`. For instance for the provided model in Google Drive, the option
 should be `--model snu398_model.ckpt`
