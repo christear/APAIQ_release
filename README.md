@@ -33,7 +33,7 @@ To install each dependency package manually
 `conda install -c bioconda pybedtools`\
 `pip install tensorflow`\
 `conda install -c anaconda biopython`\
-  
+
 ## run APAIQ
 
 `apaiq --input_file=RNAseq.depth.bedGraph --out_dir=out_dir/ --fa_file=genome_fa --name=sample_id --DB_file polyA.bed --model $model`
