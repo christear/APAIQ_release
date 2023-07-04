@@ -28,6 +28,12 @@ All the enviroment files and required libraries would be installed automatically
 To run APAIQ using source code from Github, please create a enviroment using the provided env files.
 `conda create --name apaiq_env --file apaiq.env.txt`
 
+To install each dependency package manually
+`conda create --name apaiq_env python=3.7`
+`conda install -c bioconda pybedtools`
+`pip install tensorflow`
+`conda install -c anaconda biopython`
+  
 ## run APAIQ
 
 `apaiq --input_file=RNAseq.depth.bedGraph --out_dir=out_dir/ --fa_file=genome_fa --name=sample_id --DB_file polyA.bed --model $model`
