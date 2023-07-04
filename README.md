@@ -14,9 +14,10 @@ The bedGraph could be also obtained from bam file by using genomeCoverageBed fro
 
 #### examples to generate bedGraph from bam file 
 
-`genomeCoverageBed -ibam file.bam -split -bg -scale scaled.factor`
-To get the value of reads per million (RPM), instead of raw count, a scaled factor should be specified.
-The factor is equal to 1000000/(total unique mapped reads) 
+`genomeCoverageBed -ibam file.bam -split -bg -scale scaled.factor`\
+To get the value of reads per million (RPM), instead of raw count, a scaled factor should be specified.\
+The factor is equal to 1000000/(total unique mapped reads), and it should be caution to use fragment if the data is paired-end.\
+
 
 ## install APAIQ 
 To install the compiled version of APAIQ from conda, we recommend to creat a conda enviroment firstly using\ 
