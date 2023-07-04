@@ -29,10 +29,10 @@ To run APAIQ using source code from Github, please create a enviroment using the
 `conda create --name apaiq_env --file apaiq.env.txt`
 
 To install each dependency package manually
-`conda create --name apaiq_env python=3.7`
-`conda install -c bioconda pybedtools`
-`pip install tensorflow`
-`conda install -c anaconda biopython`
+`conda create --name apaiq_env python=3.7`\
+`conda install -c bioconda pybedtools`\
+`pip install tensorflow`\
+`conda install -c anaconda biopython`\
   
 ## run APAIQ
 
