@@ -16,7 +16,7 @@ The bedGraph could be also obtained from bam file by using genomeCoverageBed fro
 
 `genomeCoverageBed -ibam file.bam -split -bg -scale scaled.factor`\
 To get the value of reads per million (RPM), instead of raw count, a scaled factor should be specified.\
-The factor is equal to 1000000/(total unique mapped reads), and it should be caution to use fragment if the data is paired-end.\
+The factor is equal to 1000000/(total unique mapped reads), and it should be caution to use fragment if the data is paired-end.
 
 
 ## install APAIQ 
