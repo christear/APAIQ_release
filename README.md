@@ -19,20 +19,20 @@ To get the value of reads per million (RPM), instead of raw count, a scaled fact
 The factor is equal to 1000000/(total unique mapped reads) 
 
 ## install APAIQ 
-To install the compiled version of APAIQ from conda, we recommend to creat a conda enviroment firstly using 
-`conda create -n apaiq_env` and then
-`conda install -c joshuachou apaiq`.
+To install the compiled version of APAIQ from conda, we recommend to creat a conda enviroment firstly using\ 
+`conda create -n apaiq_env` and then\
+`conda install -c joshuachou apaiq`.\
 All the enviroment files and required libraries would be installed automatically   
 
 
-To run APAIQ using source code from Github, please create a enviroment using the provided env files.
+To run APAIQ using source code from Github, please create a enviroment using the provided env files.\
 `conda create --name apaiq_env --file apaiq.env.txt`
 
-To install each dependency package manually
+To install each dependency package manually\
 `conda create --name apaiq_env python=3.7`\
 `conda install -c bioconda pybedtools`\
 `pip install tensorflow`\
-`conda install -c anaconda biopython`\
+`conda install -c anaconda biopython`
 
 ## run APAIQ
 
