@@ -89,7 +89,9 @@ def Bedgraph_to_blocks(lines,fa_file,win_width,depth,block_pos,chromosome):
     _block_num,_start_line,_end_line,_,_block_start,_block_end = block_pos
     _chr = chromosome
     #print('Start generating block: {}:{}-{}'.format(_chr,_block_start,_block_end))
-    _ref = BedTool.seq((_chr,_block_start,_block_end),fa_file)
+    # add one more nucleotide to the end of _ref to aviod errors 
+    #_ref = BedTool.seq((_chr,_block_start,_block_end),fa_file)
+    _ref = BedTool.seq((_chr,_block_start,_block_end+1),fa_file)
     #with open(input_bg,"r") as bg:
         #lines = bg.readlines()
     _n = 0
@@ -147,6 +149,10 @@ def Bedgraph_to_blocks(lines,fa_file,win_width,depth,block_pos,chromosome):
                 print(_block_num,_chr,_block_start,_block_end,_pos)
                 if _pos > _block_end:
                     break
+            ### debuging 
+            if _res_pos > len(_ref) - 1:
+                print('### Error: index out of sequence boundary')
+                print(len(_ref),_res_pos,_pos,_pos_start,_pos_end)
             _base = _ref[_res_pos]
             if _base == 'N':
                 continue
