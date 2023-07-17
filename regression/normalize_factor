@@ -1,0 +1,5 @@
+data_mean=-1.511
+data_std=1.437
+label_mean=2.473
+label_std=1.518
+pseudo_count=0.05
