@@ -35,6 +35,16 @@ To install each dependency package manually\
 `pip install tensorflow`\
 `conda install -c anaconda biopython`
 
+Fast install dependency manually, works for python 3.7 to 3.10 
+`conda create --name apaiq_env`
+`pip install pybedtools`
+`pip install tensorflow`
+`pip install biopython`
+`pip install pandas`
+
+To run with GPU, additional dependency should be installed if they are installed manully
+`conda install -c conda-forge tensorflow-gpu`
+
 ## run APAIQ
 
 `apaiq --input_file=RNAseq.depth.bedGraph --out_dir=out_dir/ --fa_file=genome_fa --name=sample_id --DB_file polyA.bed --model $model`
