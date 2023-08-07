@@ -21,9 +21,9 @@ import pickle
 def args():
     parser = argparse.ArgumentParser()
     parser.add_argument('--out_dir', default='out_dir', help='out dir')
-    parser.add_argument('--input_file', default=None, help='unstranded wig file')
-    parser.add_argument('--input_plus', default=None, help='plus strand wig file')
-    parser.add_argument('--input_minus', default=None, help='minus strand wig file')
+    parser.add_argument('--input_file', default=None, help='unstranded bedGraph file')
+    parser.add_argument('--input_plus', default=None, help='plus strand bedGraph file')
+    parser.add_argument('--input_minus', default=None, help='minus strand bedGraph file')
     parser.add_argument('--fa_file',default=None,help='genome fasta file')
     parser.add_argument('--keep_temp',default=None,help='if you want to keep temporary file, set to "yes"')
     parser.add_argument('--window', default=201, type=int, help='input length')
