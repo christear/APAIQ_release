@@ -80,7 +80,7 @@ def annotatePAS(DB_file,pas_generator,chromosome,strand):
             pas_dict = generator_to_dict(pas_generator)
             _i = 1
             for _pos in pas_dict:
-                pas_out.append((chromosome,int(_pos) - 1,_pos,sub_pas[_pos],chromosome + ":" + strand + ":" + str(_i),strand))
+                pas_out.append((chromosome,int(_pos) - 1,_pos,pas_dict[_pos],chromosome + ":" + strand + ":" + str(_i),strand))
                 _i += 1
             return pas_out
         else:
