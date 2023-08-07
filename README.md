@@ -35,16 +35,16 @@ To install each dependency package manually\
 `conda install -c anaconda biopython`
 
 Fast install dependency manually, works for python 3.7 to 3.10 
-`conda create --name apaiq_env`
-`pip install pybedtools`
-`pip install tensorflow`
-`pip install biopython`
-`pip install pandas`
+`conda create --name apaiq_env`\
+`pip install pybedtools`\
+`pip install tensorflow`\
+`pip install biopython`\
+`pip install pandas`\
 
 To run with GPU, additional dependency should be installed by using the below code
 `conda install -c conda-forge tensorflow-gpu`
 to replace 
-`pip install tensorflow`
+`pip install tensorflow`\
 
 ## run APAIQ
 
