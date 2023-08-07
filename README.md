@@ -6,7 +6,7 @@ APAIQ use bedGraph files as input, it can either take two bedGraph files from th
 
 #### generate from mapping tools
 
-The bedGraph file could be generated during the alighment using STAR with the option '--outWigType bedGraph'
+The bedGraph file could be generated during the alighment using STAR with the option '--outWigType bedGraph --outWigNorm RPM'
 
 #### generate from bam file
 
@@ -16,8 +16,7 @@ The bedGraph could be also obtained from bam file by using genomeCoverageBed fro
 
 `genomeCoverageBed -ibam file.bam -split -bg -scale scaled.factor`\
 To get the value of reads per million (RPM), instead of raw count, a scaled factor should be specified.\
-The factor is equal to 1000000/(total unique mapped reads), and it should be caution to use fragment if the data is paired-end.
-
+The factor is equal to 1000000/(total unique mapped reads), and it should be caution to use '-du' if the data is paired-end.
 
 ## install APAIQ 
 To install the compiled version of APAIQ from conda, we recommend to creat a conda enviroment firstly using\ 
@@ -51,7 +50,8 @@ To run with GPU, additional dependency should be installed if they are installed
 a test data, pre-trained model and annotation db_file could be found through the link below:
 https://drive.google.com/drive/folders/1KNj-dsh5hCmKI3dyhIsi_OuU6-3mLpBW?usp=sharing
 
-
+Run APAIQ with source code:
+`python src_v2/APAIQ.v.1.2.py --input_file=RNAseq.depth.bedGraph --out_dir=out_dir/ --fa_file=genome_fa --name=sample_id --DB_file polyA.bed --model $model --t 30`
 Please use the prefix of the model files as the input of `--model`. For instance for the provided model in Google Drive, the option
 should be `--model snu398_model.ckpt`
 
