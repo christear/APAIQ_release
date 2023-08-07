@@ -41,8 +41,10 @@ Fast install dependency manually, works for python 3.7 to 3.10
 `pip install biopython`
 `pip install pandas`
 
-To run with GPU, additional dependency should be installed if they are installed manully
+To run with GPU, additional dependency should be installed by using the below code
 `conda install -c conda-forge tensorflow-gpu`
+to replace 
+`pip install tensorflow`
 
 ## run APAIQ
 
