@@ -159,18 +159,21 @@ if __name__ == '__main__':
                 if len(chr_blocks) < thread:
                     thread = len(chr_blocks)
                 print('### {} threads would be run in paralle with CPU'.format(thread))
-            #    
-            with ProcessPoolExecutor(max_workers=thread) as executor:
-                temp_out = out_dir + '/temp.' + name + '.' + chromosome + '.' + strand + '.pickle'
-                if os.path.exists(temp_out) and os.path.getsize(temp_out) > 0:
-                    print('### Resuming the process by loading data from the temporary file {}'.format(temp_out))
-                    chr_anno_pas = pickle.load(open(temp_out,'rb'))
-                else:
+            #
+            temp_out = out_dir + '/temp.' + name + '.' + chromosome + '.' + strand + '.pickle'
+            if os.path.exists(temp_out) and os.path.getsize(temp_out) > 0:
+                print('### Resuming the process by loading data from the temporary file {}'.format(temp_out))
+                chr_anno_pas = pickle.load(open(temp_out,'rb'))
+            else:
+                with ProcessPoolExecutor(max_workers=thread) as executor:
                     chr_out_pas = executor.map(run_single_block,chr_blocks,chunksize = 2)
+                if chr_out_pas is not None:
                     chr_anno_pas = annotatePAS(DB_file,chr_out_pas,chromosome,strand)
-                    if keep_temp == 'yes':
-                        print('### Saving the results to from the temporary file {}'.format(temp_out))
-                        pickle.dump(chr_anno_pas, open(temp_out,"wb"))    
+                else:
+                    continue
+                if keep_temp == 'yes':
+                    print('### Saving the results to from the temporary file {}'.format(temp_out))
+                    pickle.dump(chr_anno_pas, open(temp_out,"wb"))
                 pas_out_list += chr_anno_pas
             #for each_block in chr_blocks:
             #    eachout_pas = run_single_block(each_block)
