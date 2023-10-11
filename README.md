@@ -88,7 +88,7 @@ Usually, 2.5-4 G memory were required for each parallelized core/CPU.
 ## Examples of input and output 
 Examples of input and output can be found under the 'demo' directory. A example of input was shown below.
 
-chrX	20505	20601	0.00673982
+chrX\t20505\t20601	0.00673982
 chrX	20601	20605	0.0134796
 chrX	20605	20701	0.00673982
 chrX	20908	20980	0.00673982
@@ -100,7 +100,7 @@ chrX	22047	22048	0.0134796
 The first column is the chromosome. The 2nd and 3rd column are start and end of a genomic region. The fourth column indicate RNAseq coverage in the corresponding region.
 A exmaple of output was shown below.
 
-\#chromosme	start	end	score	id	strand	anno_id	anno_source	distance
+\#chromosme	start	end	score	id	strand	anno_id	anno_source	distance \
 chrX	303355	303356	34.55842697620392	chrX:+:16	+	chrX:303356:+:PLCXD1	Gencode	0
 chrX	1602523	1602524	44.11139154434204	chrX:+:26	+	chrX:1602520:+:AKAP17A	Gencode	4
 chrX	2741311	2741312	35.39809334278107	chrX:+:33	+	chrX:2741309:+:CD99	Gencode	3
