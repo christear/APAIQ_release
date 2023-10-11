@@ -88,7 +88,7 @@ Usually, 2.5-4 G memory were required for each parallelized core/CPU.
 ## Examples of input and output 
 Examples of input and output can be found under the 'demo' directory. A example of input was shown below.
 
-###
+```txt
 chrX	20505	20601	0.00673982\
 chrX	20601	20605	0.0134796\
 chrX	20605	20701	0.00673982\
@@ -97,7 +97,7 @@ chrX	20980	21008	0.0134796\
 chrX	21008	21080	0.00673982\
 chrX	21948	22047	0.00673982\
 chrX	22047	22048	0.0134796
-###
+```
 
 The first column is the chromosome. The 2nd and 3rd column are start and end of a genomic region. The fourth column indicate RNAseq coverage in the corresponding region.
 A exmaple of output was shown below.
