@@ -95,7 +95,7 @@ chrX	20908	20980	0.00673982\
 chrX	20980	21008	0.0134796\
 chrX	21008	21080	0.00673982\
 chrX	21948	22047	0.00673982\
-chrX	22047	22048	0.0134796\
+chrX	22047	22048	0.0134796
 
 The first column is the chromosome. The 2nd and 3rd column are start and end of a genomic region. The fourth column indicate RNAseq coverage in the corresponding region.
 A exmaple of output was shown below.
@@ -108,7 +108,7 @@ chrX	2882817	2882818	43.826815128326416	chrX:+:40	+	chrX:2882818:+:GYG2	3'UTR(M)
 chrX	9717311	9717312	15.25328278541565	chrX:+:47	+	chrX:9717314:+:TBL1X	3'UTR(M)	-2\
 chrX	9719649	9719650	16.97154474258423	chrX:+:53	+	chrX:9719652:+:TBL1X	3'UTR(M)	-2\
 chrX	9719739	9719740	35.48719763755798	chrX:+:54	+	chrX:9719740:+:TBL1X	Gencode	0\
-chrX	9948362	9948363	16.15381270647049	chrX:+:55	+	chrX:9948359:+:SHROOM2	3'UTR(M)	4\
+chrX	9948362	9948363	16.15381270647049	chrX:+:55	+	chrX:9948359:+:SHROOM2	3'UTR(M)	4
 
 The first three columns indicate the genomic coordinate of the identified PAS. The 4th column indicates the score of the PAS and usually 12 was used as the threshhold to filter reliable PAS, the 5th column is the PAS id and the 6th column is the strand. The 7th column is the cloest PAS from the DB file and the 8th column is the information of PAS from the DB file. The 9th is the distance. 
  
