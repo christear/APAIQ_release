@@ -103,7 +103,7 @@ The first column is the chromosome. The 2nd and 3rd column are start and end of 
 A exmaple of output was shown below.
 
 ```txt
-\#chromosme	start	end	score	id	strand	anno_id	anno_source	distance 
+#chromosme	start	end	score	id	strand	anno_id	anno_source	distance 
 chrX	303355	303356	34.55842697620392	chrX:+:16	+	chrX:303356:+:PLCXD1	Gencode	0
 chrX	1602523	1602524	44.11139154434204	chrX:+:26	+	chrX:1602520:+:AKAP17A	Gencode	4
 chrX	2741311	2741312	35.39809334278107	chrX:+:33	+	chrX:2741309:+:CD99	Gencode	3
