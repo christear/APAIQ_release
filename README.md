@@ -20,7 +20,8 @@ The factor is equal to 1000000/(total unique mapped reads), and it should be cau
 
 ## install APAIQ 
 To install the compiled version of APAIQ from conda, we recommend to creat a conda enviroment firstly using\ 
-`conda create -n apaiq_env` and then\
+`conda create -n apaiq_env python=3.7` and then
+`conda activate apaiq_env` \
 `conda install -c joshuachou apaiq`.\
 All the enviroment files and required libraries would be installed automatically   
 
@@ -28,23 +29,29 @@ All the enviroment files and required libraries would be installed automatically
 To run APAIQ using source code from Github, please create a enviroment using the provided env files.\
 `conda create --name apaiq_env --file apaiq.env.txt`
 
-To install each dependency package manually\
-`conda create --name apaiq_env python=3.7`\
-`conda install -c bioconda pybedtools`\
-`pip install tensorflow`\
-`conda install -c anaconda biopython`
+To install each dependency package manually
+```
+conda create --name apaiq_env python=3.7
+conda activate apaiq_env
+conda install -c bioconda pybedtools
+pip install tensorflow
+conda install -c anaconda biopython
+```
 
 Fast install dependency manually, works for python 3.7 to 3.10 
-`conda create --name apaiq_env`\
-`pip install pybedtools`\
-`pip install tensorflow`\
-`pip install biopython`\
-`pip install pandas`\
+```
+conda create --name apaiq_env
+conda activate apaiq_env
+pip install pybedtools
+pip install tensorflow
+pip install biopython
+pip install pandas
+```
 
 To run with GPU, additional dependency should be installed by using the below code
 `conda install -c conda-forge tensorflow-gpu`
 to replace 
-`pip install tensorflow`\
+`pip install tensorflow`
 
 ## run APAIQ
 
@@ -57,7 +64,13 @@ Run APAIQ with source code:
 Please use the prefix of the model files as the input of `--model`. For instance for the provided model in Google Drive, the option
 should be `--model snu398_model.ckpt`
 
+Run APAIQ for quantification
+`python regression/evaluateRegression.v.2.py --model=regression/regression.ckpt --factor_path=normalize_factor --pas_file=$pas_file --input_file=$input_file --out=$out_file --threshold=0`
+Please use the provided 'model', 'normalization factor' files. The pas_file should be in BED format and input_file is the same as the input_file used ing the scirpt for PAS identification.  
+
 ### Options
+The options for running APAIQ for PAS identification
+
 	--input_file <bedGraph file>			input bedGraph file from strandless data 
 
 	--input_plus <bedGraph file>			input bedGraph file from forward strand
@@ -80,7 +93,27 @@ should be `--model snu398_model.ckpt`
 
 	--keep_temp				use --keep_temp='yes', if you want to keep the temporary files.
 	
+The options for running regression model for PAS quantification
 
+	--input_file <bedGraph file>			input bedGraph file from strandless data 
+
+	--input_plus <bedGraph file>			input bedGraph file from forward strand
+
+	--input_minus <bedGraph file>			input bedGraph file from reverse strand 
+
+	--pas_file				file of PAS used for quantification in BED format 
+
+	--model					regression model 
+	
+	--factor_path			'regression/normalize_factor'
+
+	--depth					default=1. 
+
+	--out					output of the regression results  
+	
+	--threshold				Minimum RPM threshold for scaning item
+
+	
 ## Running time and memory 
 Parallelization was implanted in APAIQ using multiple-processing in Python, for which DNA sequence and RNA-seq coverage across the whole genome were divided  into hundreds of blocks. Thus, the run time and memory usage could be variable using different number of cores/CPU and different size of block (default is 100k bp). 
 Usually, 2.5-4 G memory were required for each parallelized core/CPU.
