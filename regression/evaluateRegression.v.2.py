@@ -64,7 +64,7 @@ def args():
     parser.add_argument('--input_minus', default=None, help='minus strand bedGraph file')
     parser.add_argument('--pas_file', default=None, help='pAs location file to be predicted expression level')
     parser.add_argument("--out", default='predicted_rpm.txt',help="output file path")
-    parser.add_argument('--threshold', default=12,type=int,help    ='peak length lower than threshold will be fiter out')
+    parser.add_argument('--threshold', default=12,type=int,help    ='PAS with score(5th column of the BED) lower than threshold will be filtered out')
     parser.add_argument('--depth', default=1, type=float,help=    'total number of mapped reads( in millions)')
     parser.add_argument('--window', default=1001, type=int, help='input length')
     parser.add_argument('--genome', default='hg38', help='assembly name of the genome. i.e. hg19, hg38, mm10')
@@ -106,8 +106,17 @@ def Evaluate(model,factor_path,input_file,input_plus,input_minus,pas_file,out,th
                 continue
             _line = _line.rstrip('\n')
             _chr,_,_end,_pas_id,_score,_strand = _line.split('\t')[0:6]
-            _score = float(_score)
-            _pos = int(_end)
+            # check whether the 5th column is numbers of not 
+            try:
+                _score = float(_score)
+            except:
+                _score = threshold + 1
+            
+            # check whether the 3rd column is the PAS position
+            try:
+                _pos = int(_end)
+            except:
+                continue
             if(_score > threshold):
                 original_pas_id.append(_pas_id)
                 sorted_pas_id[_strand].append(_pas_id)
