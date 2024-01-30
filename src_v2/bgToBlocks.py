@@ -12,6 +12,9 @@ import argparse
 import gc
 
 from pybedtools import BedTool
+#
+from Bio import SeqIO
+#
 
 def get_block_position(lines,win_width,block_length,keep_temp):
     _ext_width = int(win_width/1.5)
@@ -91,7 +94,13 @@ def Bedgraph_to_blocks(lines,fa_file,win_width,depth,block_pos,chromosome):
     #print('Start generating block: {}:{}-{}'.format(_chr,_block_start,_block_end))
     # add one more nucleotide to the end of _ref to aviod errors 
     #_ref = BedTool.seq((_chr,_block_start,_block_end),fa_file)
-    _ref = BedTool.seq((_chr,_block_start,_block_end+1),fa_file)
+    ### checking the chromosome size
+    max_len = _block_end + 1
+    for rec in SeqIO.parse(fa_file,'fasta'):
+        if rec.id == _chr and len(rec.seq) < max_len:
+            max_len = len(rec.seq)
+    #_ref = BedTool.seq((_chr,_block_start,_block_end+1),fa_file)
+    _ref = BedTool.seq((_chr,_block_start,max_len),fa_file)
     #with open(input_bg,"r") as bg:
         #lines = bg.readlines()
     _n = 0
