@@ -57,7 +57,8 @@ to replace
 
 `apaiq --input_file=RNAseq.depth.bedGraph --out_dir=out_dir/ --fa_file=genome_fa --name=sample_id --DB_file polyA.bed --model $model`
 a test data, pre-trained model and annotation db_file could be found through the link below:
-https://drive.google.com/drive/folders/1KNj-dsh5hCmKI3dyhIsi_OuU6-3mLpBW?usp=sharing
+https://1drv.ms/f/s!AtuEZxRPPMW71jVbvtTtC7VCean9?e=flCRUw
+
 
 Run APAIQ with source code:
 `python src_v2/APAIQ.v.1.2.py --input_file=RNAseq.depth.bedGraph --out_dir=out_dir/ --fa_file=genome_fa --name=sample_id --DB_file polyA.bed --model $model --t 30`
